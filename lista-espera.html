@@ -210,6 +210,25 @@ nav{
 .back-to-site{display:inline-flex;align-items:center;gap:7px;color:var(--purple);font-size:14px;font-weight:500;text-decoration:none;transition:gap .2s}
 .back-to-site:hover{gap:10px}
 
+
+.vip-whatsapp-btn{
+  width:100%;padding:16px 18px;
+  background:#25D366;color:#fff;
+  font-family:inherit;font-size:15px;font-weight:700;
+  border:none;border-radius:12px;text-decoration:none;cursor:pointer;
+  transition:all .25s;letter-spacing:.01em;
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  margin:6px 0 14px;
+  box-shadow:0 14px 34px rgba(37,211,102,.24);
+}
+.vip-whatsapp-btn:hover{background:#1fb85a;transform:translateY(-2px);box-shadow:0 18px 42px rgba(37,211,102,.28)}
+.btn-submit[disabled]{opacity:.7;cursor:not-allowed;transform:none;box-shadow:none}
+.form-error{
+  display:none;margin:12px 0 0;padding:11px 13px;border-radius:12px;
+  background:rgba(255,84,56,.08);border:1px solid rgba(255,84,56,.18);
+  color:#9f2d1f;font-size:12.5px;line-height:1.5;
+}
+
 /* ── RESPONSIVE ── */
 @media(max-width:900px){
   .page-wrap{grid-template-columns:1fr}
@@ -616,9 +635,12 @@ img, video { max-width: 100%; height: auto; }
         <div class="success-perks">
           <div class="sp-item"><div class="sp-check">✓</div>Acesso antecipado garantido — entras antes do público</div>
           <div class="sp-item"><div class="sp-check">✓</div>Lugar reservado nos primeiros 1000 utilizadores</div>
-          <div class="sp-item"><div class="sp-check">✓</div>Confirmação enviada para o teu email</div>
-          <div class="sp-item"><div class="sp-check">✓</div>Serás adicionado ao grupo VIP no WhatsApp</div>
+          <div class="sp-item"><div class="sp-check">✓</div>Dados guardados nos leads da lista de espera</div>
+          <div class="sp-item"><div class="sp-check">✓</div>Próximo passo: entra no grupo VIP Boomly</div>
         </div>
+        <a href="https://chat.whatsapp.com/KCMuE6YGxAuG63WIXzn08Z?mode=gi_t" target="_blank" rel="noopener" class="vip-whatsapp-btn">
+          💬 Entrar no grupo VIP Boomly
+        </a>
         <a href="boomly-final.html" class="back-to-site">
           Explorar a plataforma
           <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -632,13 +654,66 @@ img, video { max-width: 100%; height: auto; }
 </div>
 
 <script>
-function submitForm() {
+/*
+  CONFIGURAÇÃO BOOMLY
+  1) Substituir WAITLIST_API_URL pelo endpoint real da plataforma/admin.
+     Exemplo: https://app.boomly.pt/api/waitlist
+  2) Substituir VIP_WHATSAPP_URL pelo link real do grupo VIP WhatsApp.
+*/
+const WAITLIST_API_URL = 'https://app.boomly.pt/api/waitlist';
+const VIP_WHATSAPP_URL = 'https://chat.whatsapp.com/KCMuE6YGxAuG63WIXzn08Z?mode=gi_t';
+
+function setError(message) {
+  let errorBox = document.getElementById('form-error');
+  if (!errorBox) {
+    errorBox = document.createElement('div');
+    errorBox.id = 'form-error';
+    errorBox.className = 'form-error';
+    document.querySelector('.btn-submit').insertAdjacentElement('afterend', errorBox);
+  }
+  errorBox.textContent = message;
+  errorBox.style.display = message ? 'block' : 'none';
+}
+
+function setLoading(isLoading) {
+  const btn = document.querySelector('.btn-submit');
+  btn.disabled = isLoading;
+  btn.innerHTML = isLoading
+    ? 'A guardar o teu lugar...'
+    : 'Garantir o meu lugar <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+}
+
+async function sendLeadToBoomly(payload) {
+  const response = await fetch(WAITLIST_API_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    body: JSON.stringify(payload)
+  });
+
+  if (!response.ok) {
+    let details = '';
+    try {
+      const data = await response.json();
+      details = data?.message ? ` ${data.message}` : '';
+    } catch (_) {}
+    throw new Error(`Não foi possível guardar o lead.${details}`);
+  }
+
+  try { return await response.json(); } catch (_) { return {}; }
+}
+
+async function submitForm() {
+  setError('');
+
   const email = document.getElementById('f-email').value.trim();
   const phone = document.getElementById('f-phone').value.trim();
   const role  = document.getElementById('f-role').value;
+  const name  = document.getElementById('f-name').value.trim();
 
   if (!email || !phone || !role) {
-    // Shake empty fields
     [['f-email', email], ['f-phone', phone], ['f-role', role]].forEach(([id, val]) => {
       if (!val) {
         const el = document.getElementById(id);
@@ -650,18 +725,45 @@ function submitForm() {
         }, 700);
       }
     });
+    setError('Preenche o email, WhatsApp e profissão para garantires o teu lugar.');
     return;
   }
 
-  // Validate email
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     const el = document.getElementById('f-email');
     el.style.borderColor = '#ff5438';
     el.focus();
+    setError('Confirma se o email está escrito corretamente.');
     return;
   }
 
-  // Show success
+  const payload = {
+    name,
+    email,
+    phone,
+    role,
+    source: 'lista-espera-vip-boomly',
+    list: 'waitlist-vip-launch',
+    consent_privacy: true,
+    whatsapp_group_requested: true,
+    created_at: new Date().toISOString(),
+    page_url: window.location.href,
+    user_agent: navigator.userAgent
+  };
+
+  try {
+    setLoading(true);
+    await sendLeadToBoomly(payload);
+    showSuccess();
+  } catch (error) {
+    console.error(error);
+    setError('O teu lugar ainda não ficou guardado. Tenta novamente ou confirma a ligação da página à plataforma/admin.');
+  } finally {
+    setLoading(false);
+  }
+}
+
+function showSuccess() {
   document.getElementById('form-state').style.opacity = '0';
   document.getElementById('form-state').style.transform = 'translateY(-10px)';
   setTimeout(() => {
@@ -688,64 +790,6 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Enter' && document.getElementById('form-state').style.display !== 'none') submitForm();
 });
 </script>
-<script src="https://app.boomly.pt/api/waitlist/embed.js" defer></script>
-  <script>
-(function () {
-  const WHATSAPP_URL = 'https://chat.whatsapp.com/KCMuE6YGxAuG63WIXzn08Z?mode=gi_t';
-
-  function showVipInvite() {
-    if (document.getElementById('boomly-vip-whatsapp-modal')) return;
-
-    const overlay = document.createElement('div');
-    overlay.id = 'boomly-vip-whatsapp-modal';
-    overlay.style.cssText = 'position:fixed;inset:0;z-index:999999;background:rgba(18,16,28,.58);display:flex;align-items:center;justify-content:center;padding:22px;font-family:Inter,system-ui,sans-serif;';
-    overlay.innerHTML = `
-      <div style="width:min(440px,100%);background:#fff;border-radius:28px;padding:30px 28px;text-align:center;box-shadow:0 28px 80px rgba(0,0,0,.24);">
-        <div style="width:58px;height:58px;border-radius:18px;background:#e8faf0;color:#1a8a4a;display:grid;place-items:center;margin:0 auto 16px;font-size:30px;">✓</div>
-        <h2 style="margin:0 0 10px;font-size:30px;line-height:1.05;color:#16121f;font-family:Georgia,serif;">Lugar garantido</h2>
-        <p style="margin:0 auto 20px;color:#6f687d;font-size:15px;line-height:1.55;max-width:340px;">
-          Agora entra no grupo VIP da Boomly no WhatsApp para receberes novidades e acesso prioritário.
-        </p>
-        <a href="${WHATSAPP_URL}" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;width:100%;box-sizing:border-box;padding:15px 18px;border-radius:16px;background:#25D366;color:#fff;text-decoration:none;font-weight:900;font-size:16px;">
-          Entrar no grupo VIP no WhatsApp →
-        </a>
-      </div>
-    `;
-    document.body.appendChild(overlay);
-  }
-
-  document.addEventListener('click', function (e) {
-    const el = e.target.closest('a,button,input[type="submit"],input[type="button"]');
-    if (!el) return;
-
-    const text = (el.textContent || el.value || '').toLowerCase();
-    if (
-      text.includes('explorar') ||
-      text.includes('whatsapp') ||
-      text.includes('grupo') ||
-      text.includes('lugar garantido')
-    ) {
-      e.preventDefault();
-      showVipInvite();
-    }
-  }, true);
-
-  const observer = new MutationObserver(function () {
-    const success = document.querySelector('#success-state, .success-state, [data-success-state]');
-    if (!success) return;
-
-    const style = getComputedStyle(success);
-    const visible = style.display !== 'none' && style.visibility !== 'hidden' && Number(style.opacity || 1) > 0;
-    if (visible) setTimeout(showVipInvite, 300);
-  });
-
-  observer.observe(document.documentElement, {
-    childList: true,
-    subtree: true,
-    attributes: true,
-    attributeFilter: ['style', 'class']
-  });
-})();
-</script>
+<script src="https://app.boomly.pt/api/waitlist/embed.js?v=3" defer></script>
 </body>
 </html>
