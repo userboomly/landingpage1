@@ -689,5 +689,63 @@ document.addEventListener('keydown', e => {
 });
 </script>
 <script src="https://app.boomly.pt/api/waitlist/embed.js" defer></script>
+  <script>
+(function () {
+  const WHATSAPP_URL = 'https://chat.whatsapp.com/KCMuE6YGxAuG63WIXzn08Z?mode=gi_t';
+
+  function showVipInvite() {
+    if (document.getElementById('boomly-vip-whatsapp-modal')) return;
+
+    const overlay = document.createElement('div');
+    overlay.id = 'boomly-vip-whatsapp-modal';
+    overlay.style.cssText = 'position:fixed;inset:0;z-index:999999;background:rgba(18,16,28,.58);display:flex;align-items:center;justify-content:center;padding:22px;font-family:Inter,system-ui,sans-serif;';
+    overlay.innerHTML = `
+      <div style="width:min(440px,100%);background:#fff;border-radius:28px;padding:30px 28px;text-align:center;box-shadow:0 28px 80px rgba(0,0,0,.24);">
+        <div style="width:58px;height:58px;border-radius:18px;background:#e8faf0;color:#1a8a4a;display:grid;place-items:center;margin:0 auto 16px;font-size:30px;">✓</div>
+        <h2 style="margin:0 0 10px;font-size:30px;line-height:1.05;color:#16121f;font-family:Georgia,serif;">Lugar garantido</h2>
+        <p style="margin:0 auto 20px;color:#6f687d;font-size:15px;line-height:1.55;max-width:340px;">
+          Agora entra no grupo VIP da Boomly no WhatsApp para receberes novidades e acesso prioritário.
+        </p>
+        <a href="${WHATSAPP_URL}" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;width:100%;box-sizing:border-box;padding:15px 18px;border-radius:16px;background:#25D366;color:#fff;text-decoration:none;font-weight:900;font-size:16px;">
+          Entrar no grupo VIP no WhatsApp →
+        </a>
+      </div>
+    `;
+    document.body.appendChild(overlay);
+  }
+
+  document.addEventListener('click', function (e) {
+    const el = e.target.closest('a,button,input[type="submit"],input[type="button"]');
+    if (!el) return;
+
+    const text = (el.textContent || el.value || '').toLowerCase();
+    if (
+      text.includes('explorar') ||
+      text.includes('whatsapp') ||
+      text.includes('grupo') ||
+      text.includes('lugar garantido')
+    ) {
+      e.preventDefault();
+      showVipInvite();
+    }
+  }, true);
+
+  const observer = new MutationObserver(function () {
+    const success = document.querySelector('#success-state, .success-state, [data-success-state]');
+    if (!success) return;
+
+    const style = getComputedStyle(success);
+    const visible = style.display !== 'none' && style.visibility !== 'hidden' && Number(style.opacity || 1) > 0;
+    if (visible) setTimeout(showVipInvite, 300);
+  });
+
+  observer.observe(document.documentElement, {
+    childList: true,
+    subtree: true,
+    attributes: true,
+    attributeFilter: ['style', 'class']
+  });
+})();
+</script>
 </body>
 </html>
