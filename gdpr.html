@@ -338,5 +338,17 @@ img, video { max-width: 100%; height: auto; }
 <p>If you believe the processing of your data breaches the GDPR, you have the right to lodge a complaint with the Portuguese Data Protection Authority (CNPD) at <a href="https://www.cnpd.pt" style="color:var(--purple)" target="_blank">www.cnpd.pt</a>.</p>
 </div>
 <footer-mini>© 2026 One Damn Place. All rights reserved.  ·  <a href="privacidade.html" style="color:var(--muted);text-decoration:none;">Privacy Policy</a>  ·  <a href="termos.html" style="color:var(--muted);text-decoration:none;">Terms of Service</a></footer-mini>
+<script>
+(function(){
+  if(location.protocol==='file:') return;
+  const cleanMap={"index-en.html":"/en","about-us.html":"/en/about-us","contact.html":"/en/contact","terms.html":"/en/terms","privacy.html":"/en/privacy","cookies-en.html":"/en/cookies","gdpr.html":"/en/gdpr","data-deletion.html":"/en/data-deletion"};
+  document.addEventListener('click',function(e){
+    const a=e.target.closest('a[href]'); if(!a) return;
+    const raw=a.getAttribute('href'); if(!raw) return;
+    const key=raw.split('#')[0].split('?')[0].replace(/^\.\//,'');
+    if(cleanMap[key]){ e.preventDefault(); location.href=cleanMap[key]; }
+  });
+})();
+</script>
 </body>
 </html>

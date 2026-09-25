@@ -1,0 +1,18 @@
+{
+  "cleanUrls": false,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/en", "destination": "/index-en.html" },
+    { "source": "/en/", "destination": "/index-en.html" },
+    { "source": "/en/about-us", "destination": "/about-us.html" },
+    { "source": "/en/contact", "destination": "/contact.html" },
+    { "source": "/en/terms", "destination": "/terms.html" },
+    { "source": "/en/privacy", "destination": "/privacy.html" },
+    { "source": "/en/cookies", "destination": "/cookies-en.html" },
+    { "source": "/en/gdpr", "destination": "/gdpr.html" },
+    { "source": "/en/data-deletion", "destination": "/data-deletion.html" },
+    { "source": "/en/assets/:path*", "destination": "/assets/:path*" },
+    { "source": "/en/:file((?:mockup-eng|how-eng)-.*\\.png)", "destination": "/:file" },
+    { "source": "/en/favicon.png", "destination": "/favicon.png" }
+  ]
+}
