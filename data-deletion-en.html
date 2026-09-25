@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
-<title>Cookie Policy — One Damn Place</title>
+<title>Data Deletion — One Damn Place</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&amp;family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&amp;display=swap" rel="stylesheet"/>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -13,7 +13,7 @@ body { font-family: 'DM Sans', sans-serif; background: #faf9f6; color: #0f0e0c; 
 :root { --ink: #0f0e0c; --cream: #faf9f6; --warm: #f4f1eb; --bone: #e8e3d8; --purple: #6b4ef6; --muted: #7c776e; --border: rgba(15,14,12,.08); --serif: 'Cormorant Garamond', serif; }
 nav { border-bottom: 1px solid var(--border); background: #0a0a0a; }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 20px 56px; max-width: 1320px; margin: 0 auto; }
-.nav-logo img { height: 36px; display: block; }
+.nav-logo img { height: 43px; width: auto; display: block; }
 .back-link { display: inline-flex; align-items: center; gap: 8px; color: rgba(255,255,255,.55); text-decoration: none; font-size: 14px; transition: color .2s; }
 .back-link:hover { color: #fff; }
 .page-hero { padding: 80px 56px 60px; max-width: 900px; margin: 0 auto; }
@@ -35,270 +35,55 @@ footer-mini { display: block; text-align: center; padding: 32px; border-top: 1px
 .contact-card p { font-size: 14px; color: var(--muted); font-weight: 300; line-height: 1.6; margin-bottom: 12px; }
 .contact-card a { color: var(--purple); text-decoration: none; font-size: 15px; font-weight: 500; }
 .contact-card a:hover { text-decoration: underline; }
-@media(max-width:768px) { nav, .page-hero, .page-body { padding-left: 20px; padding-right: 20px; } .contact-grid { grid-template-columns: 1fr; } }
 
-/* ═══════════════════════════════════════
-   RESPONSIVE — All devices
-   Desktop 1440+ | Laptop 1024-1440
-   iPad/Tablet 768-1024 | Mobile <768
-═══════════════════════════════════════ */
+/* Steps */
+.steps { display: flex; flex-direction: column; gap: 0; margin: 28px 0 36px; }
+.step { display: flex; gap: 20px; padding: 24px 0; border-bottom: 1px solid var(--border); }
+.step:last-child { border-bottom: none; }
+.step-num { flex-shrink: 0; width: 36px; height: 36px; border-radius: 50%; background: var(--purple); color: #fff; font-size: 14px; font-weight: 600; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+.step-body h4 { font-family: var(--serif); font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+.step-body p { font-size: 15px; color: #3a3835; line-height: 1.7; margin-bottom: 0; font-weight: 300; }
 
-/* ── Fluid base ── */
-html { -webkit-text-size-adjust: 100%; }
-img, video { max-width: 100%; height: auto; }
-* { -webkit-tap-highlight-color: transparent; }
+/* Info boxes */
+.info-box { background: #f0edfc; border: 1px solid rgba(107,78,246,.15); border-radius: 16px; padding: 24px 28px; margin: 28px 0; }
+.info-box p { font-size: 15px; color: #3a3835; margin-bottom: 0; line-height: 1.75; font-weight: 300; }
+.info-box strong { color: var(--ink); font-weight: 500; }
 
-/* ── DESKTOP LARGE (1440px+) ── */
-@media (min-width: 1440px) {
-  .container { max-width: 1320px; }
-  .h1 { font-size: 108px; }
-  h2 { font-size: 72px; }
+/* Table */
+.data-table { width: 100%; border-collapse: collapse; margin: 20px 0 28px; font-size: 14px; }
+.data-table th { text-align: left; padding: 12px 16px; background: var(--warm); font-weight: 600; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--bone); }
+.data-table td { padding: 14px 16px; border-bottom: 1px solid var(--border); color: #3a3835; font-weight: 300; line-height: 1.6; vertical-align: top; }
+.data-table tr:last-child td { border-bottom: none; }
+
+/* Platform revoke grid */
+.revoke-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0 28px; }
+.revoke-card { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 20px 22px; }
+.revoke-card h5 { font-weight: 600; font-size: 14px; margin-bottom: 6px; color: var(--ink); }
+.revoke-card p { font-size: 13px; color: var(--muted); font-weight: 300; line-height: 1.55; margin-bottom: 8px; }
+.revoke-card a { font-size: 13px; color: var(--purple); text-decoration: none; font-weight: 500; }
+.revoke-card a:hover { text-decoration: underline; }
+
+@media(max-width:768px) {
+  nav, .page-hero, .page-body { padding-left: 20px; padding-right: 20px; }
+  .contact-grid, .revoke-grid { grid-template-columns: 1fr; }
+  .data-table { font-size: 13px; }
+  .data-table th, .data-table td { padding: 10px 12px; }
 }
-
-/* ── LAPTOP (1024px – 1439px) ── */
-@media (max-width: 1439px) and (min-width: 1024px) {
-  nav { padding: 16px 40px; }
-  section { padding: 100px 40px; }
-  .hero { padding: 100px 40px 0; }
-  .hero-inner { gap: 40px; }
-  .left { padding: 56px 40px 56px 40px; }
-  .right { padding: 56px 40px; }
-  .page-hero { padding: 64px 40px 48px; }
-  .page-body { padding: 0 40px 80px; }
-  .todo-grid { grid-template-columns: repeat(4, 1fr); }
-  .pricing-grid { gap: 12px; }
-  .pcard { padding: 28px 24px; }
-  .price-amount { font-size: 52px; }
-  .approval-screens { height: 400px; }
-  .screen-caption { gap: 32px; }
-}
-
-/* ── IPAD PRO / TABLET LARGE (1024px) ── */
 @media (max-width: 1024px) {
   nav { padding: 14px 24px; }
-  .nav-links { display: none; }
-  section { padding: 80px 24px; }
-  .hero { padding: 90px 24px 0; min-height: auto; }
-  .hero-inner { grid-template-columns: 1fr; gap: 48px; }
-  .hero-right { display: none; }
-  .hero-bg::before { display: none; }
-  .h1 { font-size: clamp(48px, 7vw, 72px); }
-  .hero-p { font-size: 16px; max-width: 100%; }
-  .hero-actions { flex-wrap: wrap; gap: 14px; }
-
-  /* feat */
-  .feat-hd { grid-template-columns: 1fr; gap: 24px; }
-  .bento { grid-template-columns: repeat(6,1fr); }
-  .s5,.s4,.s3,.s7,.s8 { grid-column: span 6; }
-  .s5.r2,.s4.r2 { grid-row: span 1; }
-
-  /* todo */
-  .todo-intro { grid-template-columns: 1fr; gap: 24px; }
-  .todo-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
-
-  /* showcase */
-  .showcase-layout { grid-template-columns: 1fr; gap: 48px; }
-  .laptop-wrap { max-width: 500px; margin: 0 auto; }
-
-  /* screens */
-  .screens-hd { grid-template-columns: 1fr; gap: 24px; }
-  .screen-tabs { gap: 6px; }
-  .stab { font-size: 12px; padding: 8px 14px; }
-  .screen-caption { grid-template-columns: 1fr; gap: 24px; }
-
-  /* mobile section */
-  .page-wrap { grid-template-columns: 1fr; }
-  .left { padding: 48px 24px 32px; }
-  .right { padding: 0 24px 56px; }
-  .form-card { padding: 32px 24px; }
-
-  /* approval */
-  .approval-layout { grid-template-columns: 1fr; gap: 48px; }
-  .approval-screens { height: 320px; }
-
-  /* stats */
-  .stats-hd { grid-template-columns: 1fr; gap: 24px; }
-  .stats-grid { grid-template-columns: 1fr 1fr; }
-  .sc-card:nth-child(2) { border-right: none; }
-  .sc-card:nth-child(3) { border-top: 1px solid var(--border); }
-
-  /* pricing */
-  .pricing-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
-  .pricing-hd { text-align: left; }
-  .pricing-toggle { justify-content: flex-start; }
-
-  /* launch */
-  .launch-inner { grid-template-columns: 1fr; gap: 40px; }
-  .countdown { padding: 28px; }
-
-  /* integrations */
-  .int-layout { grid-template-columns: 1fr; gap: 40px; }
-  .int-logos { justify-content: flex-start; }
-
-  /* mobile section */
-  #mobile .container > div { grid-template-columns: 1fr !important; }
-
-  /* footer */
-  .ftop { grid-template-columns: 1fr 1fr; gap: 40px; }
-  .fi { padding: 0; }
-
-  /* sub-pages */
-  .contact-grid { grid-template-columns: 1fr; }
   .page-hero { padding: 56px 24px 40px; }
   .page-body { padding: 0 24px 64px; }
-  .page-wrap { grid-template-columns: 1fr; }
-
-  /* counter */
-  .counter-wrap { max-width: 100%; }
 }
-
-/* ── TABLET PORTRAIT / LARGE PHONE (768px) ── */
-@media (max-width: 768px) {
-  nav { padding: 12px 16px; }
-  section { padding: 64px 16px; }
-  .hero { padding: 80px 16px 0; }
-  .h1 { font-size: clamp(40px, 8vw, 58px); line-height: .93; }
-  h2 { font-size: clamp(34px, 6vw, 50px); }
-  .hero-actions { flex-direction: column; align-items: flex-start; gap: 12px; }
-  .btn-big, .btn-hero { width: 100%; justify-content: center; }
-  .btn-txt { align-self: center; }
-  .proof { flex-wrap: wrap; gap: 10px; }
-
-  /* bento single col */
-  .bento { grid-template-columns: 1fr; grid-auto-rows: auto; }
-  .s5,.s4,.s3,.s7,.s8 { grid-column: span 1; }
-  .rmini { position: relative; bottom: auto; right: auto; margin-top: 16px; display: inline-block; }
-
-  /* todo */
-  .todo-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
-  .todo-card { padding: 18px 16px; }
-  .todo-icon { font-size: 22px; margin-bottom: 10px; }
-  .todo-name { font-size: 15px; }
-  .todo-desc { font-size: 12px; }
-
-  /* screen tabs scroll */
-  .screen-tabs { overflow-x: auto; flex-wrap: nowrap; padding-bottom: 4px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
-  .screen-tabs::-webkit-scrollbar { display: none; }
-  .stab { flex-shrink: 0; font-size: 12px; padding: 7px 14px; }
-
-  /* stats grid */
-  .stats-grid { grid-template-columns: 1fr 1fr; border-radius: 16px; }
-  .sc-num { font-size: 44px; }
-  .sc-card { padding: 28px 20px; }
-
-  /* pricing */
-  .pricing-grid { max-width: 100%; }
-  .pcard { padding: 28px 20px; }
-  .price-amount { font-size: 50px; }
-  .plan-features { gap: 9px; }
-
-  /* countdown */
-  .cd-grid { grid-template-columns: repeat(4,1fr); gap: 8px; }
-  .cd-num { font-size: 32px; }
-  .cd-item { padding: 16px 8px; }
-
-  /* int logos */
-  .int-logos { gap: 10px; }
-  .int-logo-item { padding: 16px 12px; min-width: 70px; }
-  .int-logo-item svg { width: 36px; height: 36px; }
-
-  /* footer */
-  .ftop { grid-template-columns: 1fr; gap: 32px; }
-  footer { padding: 48px 16px 32px; }
-  .fbot { flex-direction: column; gap: 8px; text-align: center; }
-
-  /* mobile section iphone */
-  #mobile .container > div { gap: 48px !important; }
-
-  /* sub-pages */
-  nav { padding: 12px 16px; }
+@media (max-width: 480px) {
   .page-hero { padding: 48px 16px 32px; }
   .page-body { padding: 0 16px 56px; }
-  .form-card { padding: 28px 20px; border-radius: 20px; }
-  .counter-wrap { flex-direction: column; gap: 12px; }
-  .counter-info { border-left: none; padding-left: 0; border-top: 1px solid var(--border); padding-top: 12px; width: 100%; }
+  nav { padding: 12px 16px; }
+  .step { gap: 14px; }
+  .step-num { width: 30px; height: 30px; font-size: 12px; }
 }
-
-/* ── MOBILE / IPHONE (480px) ── */
-@media (max-width: 480px) {
-  section { padding: 56px 16px; }
-  .h1 { font-size: clamp(36px, 9vw, 48px); }
-  h2 { font-size: clamp(30px, 7vw, 42px); }
-  .hero-p { font-size: 15px; }
-  .btn-big { font-size: 14px; padding: 14px 24px; }
-  .eyebrow { flex-wrap: wrap; }
-
-  /* bento */
-  .bento { gap: 10px; }
-  .bc-big { font-size: 42px; }
-
-  /* todo — single col on small phones */
-  .todo-grid { grid-template-columns: 1fr; }
-
-  /* showcase steps */
-  .sst-b h4 { font-size: 17px; }
-  .sst-b p { font-size: 13px; }
-
-  /* approval section */
-  .approval-screens { height: 240px; }
-  .apscreen.modal { width: 65%; bottom: -10px; right: -5px; }
-
-  /* stats */
-  .stats-grid { grid-template-columns: 1fr; }
-  .sc-card { border-right: none !important; border-bottom: 1px solid var(--border); }
-  .sc-card:last-child { border-bottom: none; }
-  .sc-num { font-size: 52px; }
-
-  /* countdown */
-  .cd-grid { grid-template-columns: repeat(2,1fr); }
-  .cd-num { font-size: 36px; }
-
-  /* pricing */
-  .pcard.top-badge { padding-top: 48px; }
-  .plan-limits { flex-wrap: wrap; }
-  .pricing-toggle { flex-wrap: wrap; gap: 8px; }
-
-  /* lista espera */
-  .left-title { font-size: 36px; }
-  .counter-num { font-size: 44px; }
-  .perks { gap: 12px; }
-  .field-row { grid-template-columns: 1fr; }
-
-  /* iphone mockup scale */
-  #mobile .container > div > div:first-child { transform: scale(.88); transform-origin: top center; }
-
-  /* footer */
-  .ftop { gap: 28px; }
-}
-
-/* ── TINY PHONES (360px) ── */
-@media (max-width: 380px) {
-  .h1 { font-size: 32px; }
-  h2 { font-size: 28px; }
-  .btn-big { padding: 13px 20px; font-size: 13px; }
-  nav { padding: 10px 14px; }
-  .nav-logo img { height: 28px; }
-  .todo-grid { grid-template-columns: 1fr; }
-}
-
-/* ── TOUCH IMPROVEMENTS ── */
-@media (hover: none) and (pointer: coarse) {
-  .btn-big:hover, .btn-ink:hover, .btn-ghost:hover { transform: none; box-shadow: none; }
-  .bc:hover { transform: none; box-shadow: none; }
-  .todo-card:hover { transform: none; box-shadow: none; }
-  .pcard:hover { transform: none; }
-  .int-logo-item:hover { transform: none; box-shadow: none; }
-  .btn-big:active { opacity: .85; transform: scale(.98); }
-  .btn-ink:active { opacity: .85; }
-}
-
-/* ── SAFE AREAS (iPhone notch/island) ── */
 @supports (padding: max(0px)) {
   nav { padding-left: max(16px, env(safe-area-inset-left)); padding-right: max(16px, env(safe-area-inset-right)); }
-  footer { padding-bottom: max(32px, env(safe-area-inset-bottom)); }
-  .hero { padding-top: max(90px, calc(80px + env(safe-area-inset-top))); }
 }
-
 </style>
 <link href="assets/favicon.png" rel="icon" type="image/png"/>
 <link href="assets/favicon.png" rel="shortcut icon" type="image/png"/>
@@ -316,25 +101,175 @@ img, video { max-width: 100%; height: auto; }
 </nav>
 <div class="page-hero">
 <div class="page-tag">Legal</div>
-<h1 class="page-title">How we use<br/><em>cookies</em></h1>
-<p class="page-sub">We explain which cookies we use and how you can control them.</p>
+<h1 class="page-title">Deletion of<br/><em>personal data</em></h1>
+<p class="page-sub">How to request deletion of your account and all associated data, including data from third-party platforms.</p>
 </div>
 <div class="page-body">
 <div class="divider"></div>
-<p><strong>Last updated:</strong> May 2026</p>
-<h3>What are cookies?</h3>
-<p>Cookies are small text files stored on your device when you visit a website. They allow the site to remember your preferences and improve your experience.</p>
-<h3>Cookies we use</h3>
+<p><strong>Last updated:</strong> April 2026</p>
+<h3>Your right to erasure</h3>
+<p>You have the right to request deletion of all personal data stored by One Damn Place under Article 17 of the General Data Protection Regulation (GDPR) and in accordance with the data policies of integrated platforms, including Meta (Facebook and Instagram), TikTok, Pinterest, LinkedIn and Google.</p>
+<p>Deletion is permanent and irreversible. Once completed, it will not be possible to recover any data, history, reports or content associated with your account.</p>
+<h3>How to request deletion</h3>
+<p>You can request deletion in two ways:</p>
+<div class="steps">
+<div class="step">
+<div class="step-num">1</div>
+<div class="step-body">
+<h4>Directly on the platform</h4>
+<p>Go to your One Damn Place account → Settings → Account → <strong>Delete account</strong>. The process is immediate and permanent. You will be asked to confirm your identity before deletion.</p>
+</div>
+</div>
+<div class="step">
+<div class="step-num">2</div>
+<div class="step-body">
+<h4>By email</h4>
+<p>Send a request to <a href="mailto:info@onedamnplace.com" style="color:var(--purple)">info@onedamnplace.com</a> with the subject <strong>“Data deletion request”</strong>, stating the email address associated with the account. We will respond and process the request within <strong>30 days</strong>, as required by the GDPR.</p>
+</div>
+</div>
+<div class="step">
+<div class="step-num">3</div>
+<div class="step-body">
+<h4>Via callback das plataformas de terceiros</h4>
+<p>Se conectaste a One Damn Place ao Facebook ou Instagram e depois removeste a nossa app das tuas definições Meta, receberemos automaticamente uma notificação de eliminação de dados através do <strong>Data Deletion Callback</strong> da plataforma Meta. Processamoos esse pedido nas mesmas 72 horas e enviamos a confirmação para o teu email.</p>
+</div>
+</div>
+</div>
+<h3>What is deleted</h3>
+<p>Ao processar um pedido de eliminação, removemos permanentemente:</p>
+<table class="data-table">
+<thead>
+<tr>
+<th>Data category</th>
+<th>Deletion timeframe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Account data (name, email, password)</td>
+<td>Immediately after confirmation</td>
+</tr>
+<tr>
+<td>Social platform access tokens (Meta, TikTok, Pinterest, LinkedIn, Google)</td>
+<td>Immediate — deleted first</td>
+</tr>
+<tr>
+<td>Scheduled and published content (images, videos, text, captions)</td>
+<td>Immediately after confirmation</td>
+</tr>
+<tr>
+<td>Metrics and report data</td>
+<td>Immediately after confirmation</td>
+</tr>
+<tr>
+<td>Synced Google Calendar data</td>
+<td>Immediately after confirmation</td>
+</tr>
+<tr>
+<td>Session logs and usage data</td>
+<td>Up to 30 days</td>
+</tr>
+<tr>
+<td>Billing data and payment history</td>
+<td>Retained for 10 years due to legal tax obligations; anonymised for statistical purposes</td>
+</tr>
+<tr>
+<td>Security backups</td>
+<td>Up to 90 days (normal backup rotation cycle)</td>
+</tr>
+</tbody>
+</table>
+<div class="info-box">
+<p><strong>Note on tax data:</strong> Por obrigação legal nos termos do Código do IVA e do Código Comercial português, os registos de faturação (faturas, recibos e dados necessários à sua emissão) são conservados pelo período mínimo de 10 anos. Estes dados são anonimizados na máxima extensão possível, mantendo apenas o necessário para cumprimento das obrigações legais.</p>
+</div>
+<h3>Eliminação de dados de plataformas de terceiros</h3>
+<p>Quando eliminas a tua conta One Damn Place, eliminamos imediatamente todos os tokens de acesso e dados obtidos das APIs das plataformas conectadas. No entanto, os dados que existem nas próprias plataformas (publicações, métricas, audiência) permanecem nessas plataformas e são da tua responsabilidade gerir diretamente com cada uma.</p>
+<p>Para revogar o acesso da One Damn Place às tuas contas sociais independentemente de eliminar a conta One Damn Place:</p>
+<div class="revoke-grid">
+<div class="revoke-card">
+<h5>Meta (Facebook &amp; Instagram)</h5>
+<p>Settings → Segurança → Apps e Sites</p>
+<a href="https://www.facebook.com/settings?tab=business_tools" target="_blank">Abrir definições Meta →</a>
+</div>
+<div class="revoke-card">
+<h5>TikTok</h5>
+<p>Settings &amp; Privacidade → Segurança → Autorização de Apps</p>
+<a href="https://www.tiktok.com/setting" target="_blank">Abrir definições TikTok →</a>
+</div>
+<div class="revoke-card">
+<h5>Pinterest</h5>
+<p>Settings → Segurança e Login → Apps e Sites</p>
+<a href="https://www.pinterest.com/settings/security" target="_blank">Abrir definições Pinterest →</a>
+</div>
+<div class="revoke-card">
+<h5>LinkedIn</h5>
+<p>Settings &amp; Privacidade → Privacidade dos Dados → Outras Aplicações</p>
+<a href="https://www.linkedin.com/psettings/permitted-services" target="_blank">Abrir definições LinkedIn →</a>
+</div>
+<div class="revoke-card">
+<h5>Google (YouTube &amp; Calendar)</h5>
+<p>Account Google → Segurança → Apps com acesso à conta</p>
+<a href="https://myaccount.google.com/permissions" target="_blank">Abrir definições Google →</a>
+</div>
+<div class="revoke-card">
+<h5>Todos os outros</h5>
+<p>Para qualquer outra integração, contact us e removemos o acesso imediatamente.</p>
+<a href="mailto:info@onedamnplace.com">info@onedamnplace.com →</a>
+</div>
+</div>
+<h3>Confirmation and request status</h3>
+<p>Após recebermos um pedido de eliminação, enviaremos um email de confirmação no prazo de <strong>72 horas</strong>. A confirmação incluirá um identificador único do pedido e a data prevista de conclusão. Quando a eliminação estiver completa, enviaremos uma confirmação final. Se não receberes qualquer resposta no prazo de 5 dias úteis, contact us novamente em <a href="mailto:info@onedamnplace.com" style="color:var(--purple)">info@onedamnplace.com</a>.</p>
+<h3>Eliminação via Meta — Data Deletion Callback</h3>
+<p>Em cumprimento dos requisitos da Plataforma Meta para apps que utilizam login com Facebook ou Instagram, a One Damn Place implementa o endpoint de <strong>Data Deletion Callback</strong> exigido pela Meta. Este mecanismo funciona da seguinte forma:</p>
+<div class="steps">
+<div class="step">
+<div class="step-num">1</div>
+<div class="step-body">
+<h4>Remoção da app nas definições Meta</h4>
+<p>Quando removes a One Damn Place nas definições de Segurança da tua conta Facebook ou Instagram, a Meta envia automaticamente um pedido de eliminação de dados ao nosso servidor.</p>
+</div>
+</div>
+<div class="step">
+<div class="step-num">2</div>
+<div class="step-body">
+<h4>Processamento imediato</h4>
+<p>O nosso sistema processa o pedido automaticamente nas <strong>72 horas</strong> seguintes, eliminando todos os dados associados ao teu user Meta (tokens, métricas, conteúdos, configurações).</p>
+</div>
+</div>
+<div class="step">
+<div class="step-num">3</div>
+<div class="step-body">
+<h4>Verificação do estado</h4>
+<p>A Meta disponibiliza um URL de confirmação onde podes verificar o estado do pedido de eliminação. Podes também verificar diretamente em <a href="mailto:info@onedamnplace.com" style="color:var(--purple)">info@onedamnplace.com</a> fornecendo o teu identificador de user Meta.</p>
+</div>
+</div>
+</div>
+<div class="info-box">
+<p><strong>URL de verificação de eliminação de dados Meta:</strong> Após submeter um pedido via Meta, recebes um URL no formato <code>https://onedamnplace.com/eliminacao-dados?codigo=[ID]</code> onde podes verificar o estado em tempo real. Se tiveres dúvidas sobre o estado do teu pedido, contacta <a href="mailto:info@onedamnplace.com" style="color:var(--purple)">info@onedamnplace.com</a> com o teu código de pedido.</p>
+</div>
+<h3>Os teus direitos RGPD</h3>
+<p>Para além da eliminação, podes exercer os seguintes direitos previstos no RGPD enviando um email para <a href="mailto:info@onedamnplace.com" style="color:var(--purple)">info@onedamnplace.com</a>:</p>
 <ul>
-<li><strong>Essential:</strong> Required for the platform to function — user sessions and authentication. They cannot be disabled.</li>
-<li><strong>Functional:</strong> Remember your preferences (language, theme, layout). You can disable them without affecting core functionality.</li>
-<li><strong>Analytics:</strong> We use anonymised data to understand how the platform is used and improve it. You can opt out.</li>
+<li><strong>Access:</strong> receber uma cópia de todos os dados que temos sobre ti</li>
+<li><strong>Rectification:</strong> corrigir dados inexatos ou incompletos</li>
+<li><strong>Data portability:</strong> receber os teus dados num formato estruturado e legível por máquina (JSON ou CSV)</li>
+<li><strong>Restriction of processing:</strong> restringir o uso dos teus dados em determinadas circunstâncias</li>
+<li><strong>Objection:</strong> opor-te ao tratamento baseado em interesses legítimos</li>
 </ul>
-<h3>Third-party cookies</h3>
-<p>Some of our technical partners (such as payment processors) may place cookies on your device. We do not control these cookies — please review the relevant partners’ policies.</p>
-<h3>How to manage cookies</h3>
-<p>You can control and delete cookies through your browser settings. Deleting essential cookies may affect how the platform works. For more information, check your browser help pages.</p>
-<p>For questions, contact info@onedamnplace.com.</p>
+<p>You may also lodge a complaint à <a href="https://www.cnpd.pt" style="color:var(--purple)" target="_blank">Portuguese Data Protection Authority (CNPD)</a> se considerares que os teus direitos não foram respeitados.</p>
+<div class="divider"></div>
+<div class="contact-grid">
+<div class="contact-card">
+<h4>Deletion request</h4>
+<p>Para eliminar a tua conta e todos os dados associados, ou para verificar o estado de um pedido em curso.</p>
+<a href="mailto:info@onedamnplace.com">info@onedamnplace.com</a>
+</div>
+<div class="contact-card">
+<h4>Other GDPR rights</h4>
+<p>Para pedidos de acesso, portabilidade, retificação ou qualquer outra questão sobre os teus dados.</p>
+<a href="mailto:info@onedamnplace.com">info@onedamnplace.com</a>
+</div>
+</div>
 </div>
 <footer-mini>© 2026 One Damn Place. All rights reserved.  ·  <a href="/privacidade/" style="color:var(--muted);text-decoration:none;">Privacy Policy</a>  ·  <a href="/termos/" style="color:var(--muted);text-decoration:none;">Terms of Service</a></footer-mini>
 </body>
