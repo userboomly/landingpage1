@@ -401,6 +401,14 @@ img, video { max-width: 100%; height: auto; }
   const btn=document.getElementById('odpMusicToggle');
   const label=btn.querySelector('.odp-music-label');
   let userStopped=false;
+  const ODP_AUDIO_STATE='odp_en_audio_state_v1';
+  try{
+    const saved=JSON.parse(localStorage.getItem(ODP_AUDIO_STATE)||'null');
+    if(saved && typeof saved.time==='number'){
+      audio.currentTime=Math.max(0,saved.time);
+      userStopped=saved.playing===false;
+    }
+  }catch(e){}
 
   function paint(playing){
     btn.classList.toggle('is-off',!playing);
@@ -409,10 +417,19 @@ img, video { max-width: 100%; height: auto; }
   }
   async function startMusic(){
     if(userStopped)return false;
-    try{audio.volume=.55;await audio.play();paint(true);return true}
+    try{
+      audio.volume=.55;
+      await audio.play();
+      paint(true);
+      try{localStorage.setItem(ODP_AUDIO_STATE,JSON.stringify({time:audio.currentTime,playing:true}))}catch(e){}
+      return true
+    }
     catch(e){paint(false);return false}
   }
-  function stopMusic(){userStopped=true;audio.pause();paint(false)}
+  function stopMusic(){
+    userStopped=true;audio.pause();paint(false);
+    try{localStorage.setItem(ODP_AUDIO_STATE,JSON.stringify({time:audio.currentTime,playing:false}))}catch(e){}
+  }
 
   btn.addEventListener('click',async function(e){
     e.preventDefault();e.stopPropagation();
@@ -443,6 +460,14 @@ img, video { max-width: 100%; height: auto; }
       document.removeEventListener('scroll',unlock,true);
     }
   };
+  
+  const saveAudioState=function(){
+    try{localStorage.setItem(ODP_AUDIO_STATE,JSON.stringify({time:audio.currentTime,playing:!audio.paused&&!userStopped}))}catch(e){}
+  };
+  audio.addEventListener('timeupdate',saveAudioState);
+  window.addEventListener('pagehide',saveAudioState);
+  document.addEventListener('visibilitychange',function(){if(document.visibilityState==='hidden')saveAudioState()});
+
   document.addEventListener('pointerdown',unlock,true);
   document.addEventListener('touchstart',unlock,true);
   document.addEventListener('keydown',unlock,true);
