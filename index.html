@@ -557,34 +557,80 @@ document.addEventListener('DOMContentLoaded', function(){
   });
 });
 </script>
-\n<!-- One Damn Place soundtrack -->
-<audio id="odpSoundtrack" src="/one-damn-place.mp3" loop preload="auto"></audio>
+\n
+
+<!-- One Damn Place soundtrack -->
+<audio id="odpSoundtrack" src="/one-damn-place.mp3" loop preload="auto" playsinline></audio>
 <style>
-#odpMusicToggle{position:fixed;right:22px;bottom:22px;z-index:99999;border:1px solid rgba(255,255,255,.18);background:rgba(12,12,12,.82);color:#fff;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:999px;padding:11px 16px;font:700 11px/1.1 Arial,sans-serif;letter-spacing:.12em;cursor:pointer;box-shadow:0 10px 35px rgba(0,0,0,.25);transition:.2s ease}
+#odpMusicToggle{position:fixed;right:22px;bottom:22px;z-index:99999;border:1px solid rgba(255,255,255,.18);background:#090909;color:#fff;border-radius:999px;padding:12px 16px;font:700 11px/1 Arial,sans-serif;letter-spacing:.12em;cursor:pointer;box-shadow:0 10px 35px rgba(0,0,0,.25);transition:.2s ease}
 #odpMusicToggle:hover{transform:translateY(-2px)}
-#odpMusicToggle .odp-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#b7ff00;margin-right:8px;box-shadow:0 0 10px rgba(183,255,0,.7)}
+#odpMusicToggle .odp-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#baff29;margin-right:8px;box-shadow:0 0 12px rgba(186,255,41,.8)}
 #odpMusicToggle.is-off .odp-dot{background:#777;box-shadow:none}
 @media(max-width:640px){#odpMusicToggle{right:14px;bottom:14px;padding:10px 13px;font-size:10px}}
 </style>
-<button id="odpMusicToggle" class="is-off" type="button" aria-label="Ligar música"><span class="odp-dot"></span><span class="odp-music-label">MUSIC ON</span></button>
+<button id="odpMusicToggle" type="button" aria-label="Desligar música"><span class="odp-dot"></span><span class="odp-music-label">MUSIC OFF</span></button>
 <script>
 (function(){
-  const audio=document.getElementById('odpSoundtrack');
-  const btn=document.getElementById('odpMusicToggle');
-  const label=btn.querySelector('.odp-music-label');
-  audio.volume=.32;
-  let explicitlyOff=false;
-  try{explicitlyOff=localStorage.getItem('odpMusic')==='off';}catch(e){}
-  function paint(on){btn.classList.toggle('is-off',!on);label.textContent=on?'MUSIC OFF':'MUSIC ON';btn.setAttribute('aria-label',on?'Parar música':'Ligar música');}
-  async function play(){if(explicitlyOff)return false;try{await audio.play();paint(true);try{localStorage.setItem('odpMusic','on')}catch(e){}return true}catch(e){paint(false);return false}}
-  function stop(){audio.pause();explicitlyOff=true;paint(false);try{localStorage.setItem('odpMusic','off')}catch(e){}}
-  btn.addEventListener('click',async function(e){e.stopPropagation();if(audio.paused){explicitlyOff=false;await play()}else stop()});
-  let saved='';try{saved=localStorage.getItem('odpMusic')||''}catch(e){}
-  if(saved==='on'){explicitlyOff=false;play()}else paint(false);
-  if(!explicitlyOff){
-    const unlock=async()=>{if(await play()){document.removeEventListener('pointerdown',unlock,true);document.removeEventListener('keydown',unlock,true)}};
-    document.addEventListener('pointerdown',unlock,true);document.addEventListener('keydown',unlock,true);
+  const audio = document.getElementById('odpSoundtrack');
+  const btn = document.getElementById('odpMusicToggle');
+  const label = btn.querySelector('.odp-music-label');
+  let userStopped = false;
+
+  function paint(playing){
+    btn.classList.toggle('is-off', !playing);
+    label.textContent = playing ? 'MUSIC OFF' : 'MUSIC ON';
+    btn.setAttribute('aria-label', playing ? 'Desligar música' : 'Ligar música');
   }
+
+  async function startMusic(){
+    if(userStopped) return false;
+    try{
+      audio.volume = 0.55;
+      await audio.play();
+      paint(true);
+      return true;
+    }catch(e){
+      /* Browser bloqueou autoplay com som. Mantemos MUSIC OFF como intenção
+         e arrancamos na primeira interação feita em qualquer parte da página. */
+      return false;
+    }
+  }
+
+  function stopMusic(){
+    userStopped = true;
+    audio.pause();
+    paint(false);
+  }
+
+  btn.addEventListener('click', async function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    if(audio.paused){
+      userStopped = false;
+      await startMusic();
+    }else{
+      stopMusic();
+    }
+  });
+
+  // Tenta tocar imediatamente ao abrir o link.
+  startMusic();
+
+  // Se o browser bloquear, qualquer primeira interação no site desbloqueia o áudio.
+  const unlock = async function(){
+    if(userStopped || !audio.paused) return;
+    const ok = await startMusic();
+    if(ok){
+      document.removeEventListener('pointerdown', unlock, true);
+      document.removeEventListener('touchstart', unlock, true);
+      document.removeEventListener('keydown', unlock, true);
+      document.removeEventListener('scroll', unlock, true);
+    }
+  };
+  document.addEventListener('pointerdown', unlock, true);
+  document.addEventListener('touchstart', unlock, true);
+  document.addEventListener('keydown', unlock, true);
+  document.addEventListener('scroll', unlock, true);
 })();
 </script>
 
