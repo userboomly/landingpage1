@@ -540,7 +540,7 @@ const obs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isInte
 els.forEach(el=>obs.observe(el)); // ── NAV ──
 window.addEventListener('scroll',()=>{const n=document.querySelector('#topnav .nav-inner');if(n)n.style.padding=scrollY>60?'12px 56px':'18px 56px';},{passive:true});
 </script><script>
-function changeIdioma(lang){ const routes = { pt: '/', en: '/en/', es: '/es/' }; if(routes[lang]){ window.location.href = routes[lang]; } }
+function changeIdioma(lang){ const routes = { pt: '/', en: '/en/', es: './index-es.html' }; if(routes[lang]){ window.location.href = routes[lang]; } }
 </script>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
