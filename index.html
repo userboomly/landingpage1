@@ -688,7 +688,10 @@ document.addEventListener('DOMContentLoaded', function(){
     }
   });
 
-  const unlock=async function(){
+  const unlock=async function(e){
+    // O botão da música gere o seu próprio clique. Evita arrancar no pointerdown
+    // e desligar novamente no click do mesmo gesto.
+    if(e && e.target && e.target.closest && e.target.closest('#odpMusicExperience')) return;
     if(userStopped||!audio.paused)return;
     const ok=await startMusic();
     if(ok){
