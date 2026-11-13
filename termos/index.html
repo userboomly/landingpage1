@@ -6,10 +6,9 @@
 <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
 <title>Termos de Utilização — One Damn Place</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&amp;family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&amp;display=swap" rel="stylesheet"/>
-
-<link href="favicon.png" rel="icon" type="image/png"/>
-<link href="favicon.png" rel="shortcut icon" type="image/png"/>
-<link href="favicon.png" rel="apple-touch-icon"/>
+<link href="/favicon.png" rel="icon" type="image/png"/>
+<link href="/favicon.png" rel="shortcut icon" type="image/png"/>
+<link href="/favicon.png" rel="apple-touch-icon"/>
 <script>try{history.replaceState(null,"","/termos/")}catch(e){}</script>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -311,43 +310,51 @@ img, video { max-width: 100%; height: auto; }
 .legal-quick-nav a{color:rgba(255,255,255,.68);text-decoration:none;font-size:12px;font-weight:600;padding:7px 12px;border:1px solid rgba(255,255,255,.10);border-radius:999px;transition:.2s}
 .legal-quick-nav a:hover{color:#fff;border-color:rgba(255,255,255,.28)}
 @media(max-width:768px){.legal-quick-nav-inner{padding:9px 20px}.legal-quick-nav a{font-size:11px;padding:6px 10px}}
-</style>
-<style id="odp-mobile-final-hardening">
-html,body{max-width:100%;overflow-x:hidden}
-img,video,svg{max-width:100%}
-*{box-sizing:border-box}
-@media (max-width:1024px){
-  .pricing-grid{grid-template-columns:1fr!important}
-  .showcase-layout,.approval-layout,.int-layout{grid-template-columns:1fr!important}
-}
-@media (max-width:768px){
-  .nav-inner{max-width:100%!important}
-  .hero-inner{max-width:100%!important;padding-left:16px!important;padding-right:16px!important}
-  .hero-actions{display:flex!important;flex-wrap:wrap!important;gap:12px!important}
-  .hero-actions>a,.hero-actions>button{max-width:100%!important}
-  .pricing-grid{width:100%!important;max-width:100%!important}
-  .pcard{width:100%!important;min-width:0!important}
-  .screen-tabs{max-width:100%!important;overflow-x:auto!important}
-  .screen-stage,.approval-screens{max-width:100%!important;overflow:hidden!important}
-  .screen-stage img,.approval-screens img{max-width:100%!important;height:auto!important}
-  .ftop{grid-template-columns:1fr!important}
-}
-@media (max-width:520px){
-  .todo-grid,.stats-grid,.cd-grid{grid-template-columns:1fr!important}
-  section{max-width:100%!important}
-  #odpMusicExperience{max-width:calc(100vw - 32px)!important}
-}
-</style>
+</style><style>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18481541885"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'AW-18481541885');
-</script>
-</head>
+/* ODP legal pages — brand redesign November 2026 */
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;500;600;700;800&display=swap');
+:root{--ink:#101010;--cream:#f5f5f8;--warm:#f5f5f8;--bone:#e5e5e9;--purple:#b78cff;--muted:#666671;--border:rgba(15,15,15,.10);--serif:'Anton',Impact,sans-serif}
+html{scroll-padding-top:110px}
+body{background:#f6f6f9;color:#101010;font-family:'DM Sans',Arial,sans-serif;overflow-x:hidden}
+nav{position:sticky;top:0;z-index:1000;background:#050505;border-bottom:1px solid #262626}
+.nav-inner{max-width:1440px;padding:15px clamp(20px,5vw,76px);min-height:76px}
+.nav-logo img{height:39px;width:auto;max-width:230px;object-fit:contain}
+.back-link{font-size:13px;font-weight:700;color:#eee;border:1px solid #404040;border-radius:100px;padding:12px 18px;transition:.2s}
+.back-link:hover{background:#c9ff24;color:#101010;border-color:#c9ff24}
+.legal-quick-nav{background:#101010!important;border-bottom:1px solid #272727!important}
+.legal-quick-nav-inner{max-width:1360px!important;padding:10px clamp(20px,5vw,76px)!important;gap:8px!important;display:flex!important;overflow-x:auto;white-space:nowrap;scrollbar-width:thin}
+.legal-quick-nav a{font-family:'DM Sans',sans-serif!important;font-size:11px!important;font-weight:700!important;letter-spacing:.01em!important;color:#bcbcbc!important;padding:9px 13px!important;border:1px solid #303030!important;border-radius:100px!important;text-decoration:none!important;flex-shrink:0}
+.legal-quick-nav a:hover,.legal-quick-nav a[aria-current=page]{color:#101010!important;background:#c9ff24!important;border-color:#c9ff24!important}
+.page-hero{max-width:none;background:#0c0c0c;color:#fff;padding:76px max(24px,calc((100vw - 1120px)/2)) 78px;position:relative;overflow:hidden}
+.page-hero:after{content:'ODP / LEGAL';position:absolute;right:max(24px,calc((100vw - 1120px)/2));top:32px;font-size:10px;letter-spacing:.22em;color:#777;font-weight:800}
+.page-tag{color:#c9ff24;font-size:11px;letter-spacing:.20em;margin-bottom:22px;font-weight:800}
+.page-tag:before{width:20px;background:#c9ff24;height:2px}
+.page-title{font-family:'Anton',Impact,sans-serif;font-size:clamp(54px,7.8vw,108px);font-weight:400;line-height:1.04;letter-spacing:-.015em;max-width:1120px;margin-bottom:26px;text-transform:uppercase;overflow-wrap:break-word}
+.page-title em{font-style:normal;color:#c9ff24}
+.page-sub{font-size:clamp(16px,2vw,20px);line-height:1.65;color:#bfbfc2;max-width:720px;font-weight:400}
+.page-body{max-width:1120px;padding:48px 36px 100px;margin:0 auto}
+.page-body>p:first-child{display:inline-block;background:#e9e9ef;border-radius:50px;padding:10px 16px;font-size:12px;font-weight:700;color:#4e4e58;margin-bottom:26px}
+.page-body h3{font-family:'Anton',Impact,sans-serif;font-weight:400;letter-spacing:0;font-size:clamp(22px,3vw,30px);line-height:1.25;margin:0 0 15px;color:#121212}
+.page-body h3:not(:first-child){margin-top:30px}
+.page-body p,.page-body li{font-family:'DM Sans',sans-serif;font-weight:400;color:#44444e;line-height:1.78;font-size:15px}
+.page-body p{margin-bottom:16px}
+.page-body a{color:#34309b;text-decoration-thickness:1px;text-underline-offset:3px;overflow-wrap:anywhere}
+.page-body ul{padding-left:22px;margin:0 0 18px}
+.page-body li{padding-left:3px;margin-bottom:7px}
+.page-body .divider{height:1px;background:#e1e1e7;margin:24px 0}
+.contact-grid{gap:16px}
+.contact-card{background:#fff;border:1px solid #e5e5e9;border-radius:18px;padding:26px;box-shadow:0 8px 24px rgba(0,0,0,.025)}
+.contact-card h4{font-family:'Anton',Impact,sans-serif;font-weight:400;font-size:22px}
+.contact-card a{color:#151515;font-weight:700}
+footer-mini{background:#0b0b0b;color:#aaa;padding:30px 20px;border-top:1px solid #222;font-size:12px}
+footer-mini a{color:#c9ff24!important}
+@media(min-width:900px){.page-body{display:block;column-count:1}.page-body>h3{padding-top:20px;border-top:1px solid #e1e1e7}}
+@media(max-width:768px){.nav-inner{padding:12px 16px;min-height:68px}.nav-logo img{height:30px}.back-link{font-size:11px;padding:10px 12px}.legal-quick-nav-inner{padding:10px 16px!important}.page-hero{padding:62px 20px 58px}.page-hero:after{right:20px;top:18px;font-size:8px}.page-title{font-size:clamp(43px,10.5vw,72px);line-height:1.08}.page-body{padding:32px 20px 64px}.page-body h3{font-size:23px}.page-body p,.page-body li{font-size:14px}.contact-grid{grid-template-columns:1fr}}
+@media(max-width:380px){.page-title{font-size:40px}.nav-logo img{height:25px}}
+
+</style>
+<style id="odp-legal-integrations-style">.odp-legal-integrations{margin:44px 0 26px;padding:clamp(20px,3vw,42px);background:#0d0d0d;color:#f7f7f7;border:1px solid #303030;border-radius:22px;overflow:hidden}.odp-legal-integrations *{box-sizing:border-box}.odp-legal-eyebrow{color:#c9ff23;letter-spacing:.18em;font-weight:900;font-size:11px;margin-bottom:16px}.odp-legal-feature-title{font-size:clamp(28px,4.4vw,56px);line-height:1.03;letter-spacing:-.035em;margin:0 0 16px!important;color:white!important;font-weight:950}.odp-legal-feature-title span{color:#c9ff23}.odp-legal-lead{font-size:clamp(15px,1.5vw,18px);max-width:850px;color:#d4d4d4!important;line-height:1.65}.odp-legal-integrations-section{border-top:1px solid #343434;padding-top:24px;margin-top:28px}.odp-legal-integrations-section h2{color:#c9ff23!important;font-size:clamp(19px,2vw,27px)!important;line-height:1.25!important;margin:0 0 13px!important}.odp-legal-integrations-section p,.odp-legal-links{color:#d7d7d7!important;line-height:1.7!important;font-size:15px!important;margin:0 0 13px!important}.odp-legal-integrations a{color:#c9ff23!important;text-decoration:underline;text-underline-offset:3px}.odp-legal-table-wrap{max-width:100%;overflow-x:auto}.odp-legal-table{border-collapse:collapse;width:100%;min-width:580px;font-size:14px;line-height:1.55}.odp-legal-table th,.odp-legal-table td{padding:13px 12px;text-align:left;vertical-align:top;border-bottom:1px solid #343434;color:#e6e6e6}.odp-legal-table th{color:#c9ff23;background:#1c1c1c;font-size:12px;letter-spacing:.04em}.odp-legal-table td:first-child{width:24%}.odp-legal-links{border-top:1px solid #343434;margin-top:25px!important;padding-top:22px}@media(max-width:700px){.odp-legal-integrations{padding:20px 16px;border-radius:15px;margin:28px 0}.odp-legal-integrations-section{padding-top:20px;margin-top:22px}.odp-legal-table{min-width:0;display:block}.odp-legal-table thead{display:none}.odp-legal-table tbody,.odp-legal-table tr,.odp-legal-table td{display:block;width:100%!important}.odp-legal-table tr{padding:10px 0;border-bottom:1px solid #343434}.odp-legal-table td{border:0;padding:5px 4px}.odp-legal-table td:first-child{font-size:16px;color:#c9ff23}.odp-legal-integrations-section p{font-size:14px!important}}</style></head>
 <body>
 <nav>
 <div class="nav-inner">
@@ -355,26 +362,16 @@ img,video,svg{max-width:100%}
 <a class="back-link" href="/">
 <svg fill="none" height="16" viewbox="0 0 16 16" width="16"><path d="M10 4L6 8l4 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg> Voltar</a>
 </div>
-</nav><div aria-label="Legal navigation" class="legal-quick-nav"><div class="legal-quick-nav-inner"><a href="/privacidade/">Privacidade</a><a href="/termos/">Termos</a><a href="/cookies/">Cookies</a><a href="/rgpd/">RGPD</a><a href="/eliminacao-dados/">Eliminação de Dados</a><a href="/sobre-nos/">Sobre nós</a><a href="/contacto/">Contacto</a></div></div>
+</nav><div aria-label="Legal navigation" class="legal-quick-nav"><div class="legal-quick-nav-inner"><a href="/privacidade/">Privacidade</a><a aria-current="page" href="/termos/">Termos</a><a href="/cookies/">Cookies</a><a href="/rgpd/">RGPD</a><a href="/eliminacao-dados/">Eliminação de Dados</a><a href="/sobre-nos/">Sobre nós</a><a href="/contacto/">Contacto</a></div></div>
 <div class="page-hero">
 <div class="page-tag">Legal</div>
 <h1 class="page-title">Termos de <em>Utilização</em></h1>
 <p class="page-sub">Ao utilizares a One Damn Place, aceitas os seguintes termos. Lê-os com atenção — procurámos mantê-los claros.</p>
 </div>
-<div class="page-body"><div class="divider"></div><p><strong>Última atualização:</strong> maio de 2026</p>
-<h3>1. Aceitação dos Termos</h3><p>Ao acederes e utilizares a plataforma One Damn Place, aceitas estes Termos de Utilização. Se não concordares com estes termos, não deves utilizar a plataforma.</p>
-<h3>2. Descrição do Serviço</h3><p>A One Damn Place é uma plataforma de gestão de trabalho digital e redes sociais que permite, entre outras funcionalidades, organizar clientes, planear e agendar conteúdos, gerir aprovações, criar propostas, acompanhar equipas e gerar relatórios.</p>
-<h3>3. Conta de Utilizador</h3><p>Para aceder à One Damn Place tens de criar uma conta com informação correta e atualizada. És responsável por manter as tuas credenciais confidenciais e por toda a atividade realizada através da tua conta.</p>
-<h3>4. Planos e Faturação</h3><p>A One Damn Place disponibiliza planos pagos e poderá disponibilizar períodos de teste gratuito, conforme indicado no site no momento da adesão. Após o período de teste, a continuação do acesso às funcionalidades pagas requer uma subscrição ativa. Aos preços apresentados acresce IVA quando legalmente aplicável.</p>
-<h3>5. Cancelamento</h3><p>Podes cancelar a tua subscrição a qualquer momento. O cancelamento produz efeitos no final do período de faturação em curso. Salvo quando exigido por lei, não são efetuados reembolsos parciais relativos a períodos já pagos.</p>
-<h3>6. Propriedade Intelectual</h3><p>O design, código, textos, identidade visual, marcas e restantes elementos próprios da plataforma pertencem à One Damn Place ou aos respetivos titulares. Os conteúdos que carregas para a plataforma continuam a pertencer-te, sem prejuízo das permissões técnicas necessárias para prestar o serviço.</p>
-<h3>7. Disponibilidade e Limitação de Responsabilidade</h3><p>Procuramos manter o serviço disponível e seguro, mas não garantimos funcionamento ininterrupto. Na medida permitida pela lei aplicável, a One Damn Place não é responsável por danos indiretos resultantes de interrupções, indisponibilidade de serviços externos ou utilização inadequada da plataforma.</p>
-<h3>8. Alterações aos Termos</h3><p>Podemos atualizar estes termos. Quando as alterações forem materialmente relevantes, procuraremos informar os utilizadores através dos meios adequados e com a antecedência legalmente exigível.</p><p>Para questões sobre estes termos, contacta-nos através de <strong>info@onedamnplace.com</strong>.</p>
-<h3>9. Entidade Responsável</h3><p>ONE DAMN PLACE é uma marca operada pela <strong>VISIONARY KEYSTONE LDA</strong>.</p><p><strong>VISIONARY KEYSTONE LDA</strong><br/>NIPC 519 368 649<br/>Rua Ponte 999, 4505-444, Lobão<br/>Portugal</p></div>
+<div class="page-body"><p>Última atualização: 13 de novembro de 2026.</p><h3>1. Identificação e âmbito</h3><p>A One Damn Place é uma plataforma digital disponibilizada pela VISIONARY KEYSTONE LDA. Estes termos regulam a utilização do website e da aplicação. Contacto: <a href="mailto:info@onedamnplace.com">info@onedamnplace.com</a>.</p><h3>2. Contas e utilização</h3><p>Para utilizar funcionalidades da aplicação é necessário criar uma conta com dados corretos. O utilizador é responsável pela confidencialidade das credenciais, pelas permissões concedidas à equipa e pelos conteúdos que publica ou gere. Não é permitido utilizar o serviço para atividades ilícitas ou violar direitos de terceiros.</p><h3>3. Plano gratuito, trial e subscrições</h3><p>A plataforma pode disponibilizar um plano Free sem prazo definido, sujeito aos limites e funcionalidades apresentados na página de planos. Os planos pagos podem oferecer um período experimental de 14 dias, quando anunciado no momento da adesão. A disponibilidade, elegibilidade e condições de cada oferta são apresentadas no processo de registo ou contratação. O plano gratuito não equivale ao acesso ilimitado a todas as funcionalidades.</p><p>Os planos, preços, limites de marcas, membros e publicações e a periodicidade de faturação são os exibidos no momento da contratação. Aos valores acresce IVA quando legalmente aplicável. Qualquer renovação automática, necessidade de meio de pagamento e início de cobrança devem ser indicados expressamente antes da confirmação da subscrição.</p><h3>4. Alterações, cancelamento e reembolsos</h3><p>O utilizador pode solicitar o cancelamento de uma subscrição através dos meios disponibilizados na conta ou do contacto de suporte. O efeito do cancelamento e eventuais valores devidos dependem das condições comunicadas na contratação e da legislação aplicável. Os direitos legais de livre resolução e de reembolso, quando aplicáveis, não são afastados por estes termos.</p><h3>5. Conteúdos e integrações</h3><p>Os conteúdos dos utilizadores continuam a pertencer aos respetivos titulares. O utilizador concede apenas as autorizações técnicas necessárias para armazenamento, processamento, partilha autorizada e publicação através das integrações escolhidas. As plataformas externas, como Meta, TikTok, LinkedIn, Google e outras, podem aplicar regras próprias e sofrer alterações ou indisponibilidades.</p><h3>6. Proteção de dados</h3><p>O tratamento de dados pessoais é descrito na <a href="/privacidade/">Política de Privacidade</a> e na <a href="/cookies/">Política de Cookies</a>. Quando o cliente utiliza a plataforma para tratar dados pessoais de terceiros, as responsabilidades das partes e eventuais condições de subcontratação devem ser acordadas conforme o RGPD.</p><h3>7. Disponibilidade e responsabilidade</h3><p>Procuramos assegurar a continuidade e segurança do serviço, sem garantir disponibilidade ininterrupta. Nenhuma disposição destes termos limita direitos ou responsabilidades que não possam ser legalmente excluídos.</p><h3>8. Contacto e alterações</h3><p>Podemos atualizar estes termos, indicando a data de revisão. Alterações materiais serão comunicadas pelos canais adequados. Questões: <a href="mailto:info@onedamnplace.com">info@onedamnplace.com</a>.</p><h3>9. Funcionalidades e limites dos planos</h3><p>A plataforma pode disponibilizar agendamento e publicação de conteúdos, gestão de clientes e marcas, tarefas, equipas, propostas, CRM, relatórios, portais de cliente, CoLab e outras funcionalidades. O acesso depende do plano contratado, das permissões de cada utilizador e da disponibilidade técnica. Os limites de marcas, membros, publicações, armazenamento e outras capacidades são os indicados na página de preços no momento da contratação; alterações materiais devem ser comunicadas de forma adequada.</p><h3>10. Período experimental de 14 dias</h3><p>O período experimental anunciado é de 14 dias, sujeito às condições apresentadas no momento do registo. Antes de qualquer cobrança, devem ser apresentados de forma clara o preço aplicável, a periodicidade, os impostos e as condições de renovação. A existência de um trial não implica que todas as funcionalidades ou limites estejam disponíveis em todos os planos.</p><h3>11. Faturação, renovação e alterações de plano</h3><p>Os preços, o IVA aplicável, a periodicidade mensal ou anual e eventuais descontos são apresentados no processo de subscrição. A alteração de plano, o seu efeito temporal e eventuais acertos devem ser comunicados antes da confirmação. O histórico de faturação e os documentos fiscais são disponibilizados pelos canais previstos na plataforma ou pelo suporte.</p><h3>12. Conteúdos publicados e direitos de terceiros</h3><p>O utilizador mantém os direitos que lhe pertençam sobre os conteúdos que carrega. Deve garantir que possui autorização para utilizar imagens, músicas, marcas, dados pessoais e outros materiais, e que a publicação respeita as regras das redes sociais e a legislação aplicável. A One Damn Place apenas necessita das permissões técnicas indispensáveis à prestação dos serviços solicitados.</p><h3>13. Contas de equipa e portal de cliente</h3><p>O titular do workspace é responsável por atribuir permissões adequadas aos colaboradores e clientes convidados, por rever acessos quando alguém deixa de colaborar e por evitar a partilha indevida de credenciais. As ações realizadas por utilizadores autorizados podem ter consequências para os conteúdos e dados do workspace.</p><h3>14. Integrações externas e publicação</h3><p>As ligações a Instagram, Facebook, TikTok, LinkedIn, Google e outros serviços dependem de autorização, permissões, políticas e disponibilidade de terceiros. Uma publicação pode falhar por limitações da API, expiração de tokens, alterações de permissões ou indisponibilidade externa. O utilizador deve confirmar publicações críticas e manter as integrações atualizadas.</p><h3>15. CoLab e relações entre utilizadores</h3><p>O CoLab facilita a descoberta e contacto entre profissionais e potenciais clientes. A publicação de perfis ou oportunidades não constitui garantia de contratação, remuneração ou resultado. Salvo indicação expressa em contrário, os termos de cada colaboração são acordados diretamente entre as partes e devem respeitar as regras da plataforma.</p><h3>16. Utilização proibida e segurança</h3><p>Não é permitido utilizar a plataforma para fraude, envio de spam, violação de direitos, acesso não autorizado, recolha ilícita de dados ou tentativa de comprometer a segurança dos sistemas. Perante risco sério, abuso ou incumprimento, poderão ser aplicadas medidas proporcionais de proteção, com respeito pelos direitos legalmente aplicáveis.</p><h3>17. Encerramento de conta e exportação</h3><p>Antes de encerrares a conta, verifica se precisas de guardar ou exportar conteúdos, propostas, relatórios e dados de clientes. A disponibilidade e os formatos de exportação dependem das funcionalidades existentes. A eliminação e conservação residual de dados seguem a Política de Privacidade e a página de Eliminação de Dados.</p><h3>18. Direitos legais e resolução de conflitos</h3><p>Nenhuma cláusula destes termos exclui direitos imperativos reconhecidos por lei, incluindo os direitos aplicáveis a consumidores quando a contratação tenha essa natureza. Reclamações e questões contratuais podem ser apresentadas pelos canais oficiais de contacto. A informação sobre meios de resolução alternativa de litígios deverá ser completada e validada em função da atividade e do enquadramento legal efetivos.</p><div class="odp-legal-integrations" id="integracoes-externas"><div class="odp-legal-eyebrow">TRANSPARÊNCIA / INTEGRAÇÕES</div><h2 class="odp-legal-feature-title">AS TUAS CONTAS.<br><span>OS TEUS DADOS.</span> AS REGRAS CLARAS.</h2><p class="odp-legal-lead">A One Damn Place pode ligar-se a serviços externos mediante autorização do utilizador. O acesso concreto depende das funcionalidades ativadas, das permissões concedidas e das regras de cada fornecedor.</p><section class="odp-legal-integrations-section"><h2>Integrações de terceiros: condições de utilização</h2><p>O utilizador declara que dispõe dos direitos e autorizações necessários para ligar contas, publicar conteúdos, gerir páginas e tratar dados pessoais de clientes ou colaboradores. É responsável por respeitar os direitos de autor, regras de publicidade, proteção de dados e termos das plataformas externas.</p><p>As operações de agendamento e publicação estão sujeitas às APIs, limites, autorizações, revisões e disponibilidade de Meta, TikTok, LinkedIn, Google e outros serviços. Uma autorização pode caducar ou ser revogada, e o fornecedor pode modificar ou suspender funcionalidades sem intervenção da One Damn Place.</p><p>A One Damn Place não garante a aceitação, alcance ou permanência de publicações em plataformas externas. O utilizador deve verificar o estado das publicações e manter um plano alternativo para conteúdos críticos.</p></section><section class="odp-legal-integrations-section"><h2>Contas de clientes, equipas e conteúdos</h2><p>Quem gere um workspace deve atribuir permissões adequadas aos membros da equipa, garantir que as pessoas autorizadas têm legitimidade para aceder a dados de terceiros e remover acessos quando deixam de ser necessários. O uso do portal de cliente não substitui a obtenção de autorizações legais ou contratuais necessárias.</p><p>A desconexão de uma integração não elimina automaticamente publicações que já estejam alojadas em plataformas externas. Para remover essas publicações, poderá ser necessário utilizar diretamente as ferramentas do respetivo fornecedor.</p></section><p class="odp-legal-links"><strong>Políticas oficiais dos fornecedores:</strong> <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener noreferrer">Meta</a> · <a href="https://www.tiktok.com/legal/page/eea/privacy-policy/pt" target="_blank" rel="noopener noreferrer">TikTok</a> · <a href="https://policies.google.com/privacy?hl=pt-PT" target="_blank" rel="noopener noreferrer">Google</a> · <a href="https://www.linkedin.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">LinkedIn</a> · <a href="https://policy.pinterest.com/pt/privacy-policy" target="_blank" rel="noopener noreferrer">Pinterest</a> · <a href="https://www.spotify.com/pt/legal/privacy-policy/" target="_blank" rel="noopener noreferrer">Spotify</a>. As políticas destes serviços são independentes da One Damn Place e podem mudar.</p></div></div>
 <footer-mini>© 2026 One Damn Place. All rights reserved.  ·  <a href="/privacidade/" style="color:var(--muted);text-decoration:none;">Política de Privacidade</a></footer-mini>
-
 <!-- One Damn Place soundtrack -->
-<audio id="odpSoundtrack" src="/one-damn-place.mp3" loop preload="auto" playsinline></audio>
+<audio id="odpSoundtrack" loop="" playsinline="" preload="auto" src="/one-damn-place.mp3"></audio>
 <style>
 #odpMusicExperience{
   position:fixed;right:24px;top:112px;z-index:99999;width:min(350px,calc(100vw - 32px));
@@ -431,21 +428,19 @@ img,video,svg{max-width:100%}
   .odp-music-title{font-size:14px}.odp-music-text{font-size:11px}
 }
 </style>
-
-<div id="odpMusicExperience" role="region" aria-label="Experiência sonora One Damn Place">
-  <div class="odp-music-top">
-    <div class="odp-music-icon">♪</div>
-    <div class="odp-music-copy">
-      <div class="odp-music-eyebrow">TURN THE SOUND ON</div>
-      <p class="odp-music-title">Ouve a One Damn Place.</p>
-      <p class="odp-music-text">A música conta-te o caos que deixas para trás — e tudo o que podes gerir num só lugar.</p>
-    </div>
-  </div>
-  <button id="odpMusicToggle" type="button" aria-label="Desligar música">
-    <span class="odp-eq"><i></i><i></i><i></i></span><span class="odp-music-label">MUSIC OFF</span>
-  </button>
+<div aria-label="Experiência sonora One Damn Place" id="odpMusicExperience" role="region">
+<div class="odp-music-top">
+<div class="odp-music-icon">♪</div>
+<div class="odp-music-copy">
+<div class="odp-music-eyebrow">TURN THE SOUND ON</div>
+<p class="odp-music-title">Ouve a One Damn Place.</p>
+<p class="odp-music-text">A música conta-te o caos que deixas para trás — e tudo o que podes gerir num só lugar.</p>
 </div>
-
+</div>
+<button aria-label="Desligar música" id="odpMusicToggle" type="button">
+<span class="odp-eq"><i></i><i></i><i></i></span><span class="odp-music-label">MUSIC OFF</span>
+</button>
+</div>
 <script>
 (function(){
   const audio=document.getElementById('odpSoundtrack');
@@ -535,6 +530,5 @@ img,video,svg{max-width:100%}
   document.addEventListener('scroll',unlock,true);
 })();
 </script>
-<script src="https://app.onedamnplace.com/api/track/embed.js"></script>
 </body>
 </html>

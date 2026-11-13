@@ -6,10 +6,9 @@
 <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
 <title>Eliminação de Dados — One Damn Place</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&amp;family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&amp;display=swap" rel="stylesheet"/>
-
-<link href="favicon.png" rel="icon" type="image/png"/>
-<link href="favicon.png" rel="shortcut icon" type="image/png"/>
-<link href="favicon.png" rel="apple-touch-icon"/>
+<link href="/favicon.png" rel="icon" type="image/png"/>
+<link href="/favicon.png" rel="shortcut icon" type="image/png"/>
+<link href="/favicon.png" rel="apple-touch-icon"/>
 <script>try{history.replaceState(null,"","/eliminacao-dados/")}catch(e){}</script>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -96,43 +95,51 @@ footer-mini { display: block; text-align: center; padding: 32px; border-top: 1px
 .legal-quick-nav a{color:rgba(255,255,255,.68);text-decoration:none;font-size:12px;font-weight:600;padding:7px 12px;border:1px solid rgba(255,255,255,.10);border-radius:999px;transition:.2s}
 .legal-quick-nav a:hover{color:#fff;border-color:rgba(255,255,255,.28)}
 @media(max-width:768px){.legal-quick-nav-inner{padding:9px 20px}.legal-quick-nav a{font-size:11px;padding:6px 10px}}
-</style>
-<style id="odp-mobile-final-hardening">
-html,body{max-width:100%;overflow-x:hidden}
-img,video,svg{max-width:100%}
-*{box-sizing:border-box}
-@media (max-width:1024px){
-  .pricing-grid{grid-template-columns:1fr!important}
-  .showcase-layout,.approval-layout,.int-layout{grid-template-columns:1fr!important}
-}
-@media (max-width:768px){
-  .nav-inner{max-width:100%!important}
-  .hero-inner{max-width:100%!important;padding-left:16px!important;padding-right:16px!important}
-  .hero-actions{display:flex!important;flex-wrap:wrap!important;gap:12px!important}
-  .hero-actions>a,.hero-actions>button{max-width:100%!important}
-  .pricing-grid{width:100%!important;max-width:100%!important}
-  .pcard{width:100%!important;min-width:0!important}
-  .screen-tabs{max-width:100%!important;overflow-x:auto!important}
-  .screen-stage,.approval-screens{max-width:100%!important;overflow:hidden!important}
-  .screen-stage img,.approval-screens img{max-width:100%!important;height:auto!important}
-  .ftop{grid-template-columns:1fr!important}
-}
-@media (max-width:520px){
-  .todo-grid,.stats-grid,.cd-grid{grid-template-columns:1fr!important}
-  section{max-width:100%!important}
-  #odpMusicExperience{max-width:calc(100vw - 32px)!important}
-}
-</style>
+</style><style>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18481541885"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'AW-18481541885');
-</script>
-</head>
+/* ODP legal pages — brand redesign November 2026 */
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;500;600;700;800&display=swap');
+:root{--ink:#101010;--cream:#f5f5f8;--warm:#f5f5f8;--bone:#e5e5e9;--purple:#b78cff;--muted:#666671;--border:rgba(15,15,15,.10);--serif:'Anton',Impact,sans-serif}
+html{scroll-padding-top:110px}
+body{background:#f6f6f9;color:#101010;font-family:'DM Sans',Arial,sans-serif;overflow-x:hidden}
+nav{position:sticky;top:0;z-index:1000;background:#050505;border-bottom:1px solid #262626}
+.nav-inner{max-width:1440px;padding:15px clamp(20px,5vw,76px);min-height:76px}
+.nav-logo img{height:39px;width:auto;max-width:230px;object-fit:contain}
+.back-link{font-size:13px;font-weight:700;color:#eee;border:1px solid #404040;border-radius:100px;padding:12px 18px;transition:.2s}
+.back-link:hover{background:#c9ff24;color:#101010;border-color:#c9ff24}
+.legal-quick-nav{background:#101010!important;border-bottom:1px solid #272727!important}
+.legal-quick-nav-inner{max-width:1360px!important;padding:10px clamp(20px,5vw,76px)!important;gap:8px!important;display:flex!important;overflow-x:auto;white-space:nowrap;scrollbar-width:thin}
+.legal-quick-nav a{font-family:'DM Sans',sans-serif!important;font-size:11px!important;font-weight:700!important;letter-spacing:.01em!important;color:#bcbcbc!important;padding:9px 13px!important;border:1px solid #303030!important;border-radius:100px!important;text-decoration:none!important;flex-shrink:0}
+.legal-quick-nav a:hover,.legal-quick-nav a[aria-current=page]{color:#101010!important;background:#c9ff24!important;border-color:#c9ff24!important}
+.page-hero{max-width:none;background:#0c0c0c;color:#fff;padding:76px max(24px,calc((100vw - 1120px)/2)) 78px;position:relative;overflow:hidden}
+.page-hero:after{content:'ODP / LEGAL';position:absolute;right:max(24px,calc((100vw - 1120px)/2));top:32px;font-size:10px;letter-spacing:.22em;color:#777;font-weight:800}
+.page-tag{color:#c9ff24;font-size:11px;letter-spacing:.20em;margin-bottom:22px;font-weight:800}
+.page-tag:before{width:20px;background:#c9ff24;height:2px}
+.page-title{font-family:'Anton',Impact,sans-serif;font-size:clamp(54px,7.8vw,108px);font-weight:400;line-height:1.04;letter-spacing:-.015em;max-width:1120px;margin-bottom:26px;text-transform:uppercase;overflow-wrap:break-word}
+.page-title em{font-style:normal;color:#c9ff24}
+.page-sub{font-size:clamp(16px,2vw,20px);line-height:1.65;color:#bfbfc2;max-width:720px;font-weight:400}
+.page-body{max-width:1120px;padding:48px 36px 100px;margin:0 auto}
+.page-body>p:first-child{display:inline-block;background:#e9e9ef;border-radius:50px;padding:10px 16px;font-size:12px;font-weight:700;color:#4e4e58;margin-bottom:26px}
+.page-body h3{font-family:'Anton',Impact,sans-serif;font-weight:400;letter-spacing:0;font-size:clamp(22px,3vw,30px);line-height:1.25;margin:0 0 15px;color:#121212}
+.page-body h3:not(:first-child){margin-top:30px}
+.page-body p,.page-body li{font-family:'DM Sans',sans-serif;font-weight:400;color:#44444e;line-height:1.78;font-size:15px}
+.page-body p{margin-bottom:16px}
+.page-body a{color:#34309b;text-decoration-thickness:1px;text-underline-offset:3px;overflow-wrap:anywhere}
+.page-body ul{padding-left:22px;margin:0 0 18px}
+.page-body li{padding-left:3px;margin-bottom:7px}
+.page-body .divider{height:1px;background:#e1e1e7;margin:24px 0}
+.contact-grid{gap:16px}
+.contact-card{background:#fff;border:1px solid #e5e5e9;border-radius:18px;padding:26px;box-shadow:0 8px 24px rgba(0,0,0,.025)}
+.contact-card h4{font-family:'Anton',Impact,sans-serif;font-weight:400;font-size:22px}
+.contact-card a{color:#151515;font-weight:700}
+footer-mini{background:#0b0b0b;color:#aaa;padding:30px 20px;border-top:1px solid #222;font-size:12px}
+footer-mini a{color:#c9ff24!important}
+@media(min-width:900px){.page-body{display:block;column-count:1}.page-body>h3{padding-top:20px;border-top:1px solid #e1e1e7}}
+@media(max-width:768px){.nav-inner{padding:12px 16px;min-height:68px}.nav-logo img{height:30px}.back-link{font-size:11px;padding:10px 12px}.legal-quick-nav-inner{padding:10px 16px!important}.page-hero{padding:62px 20px 58px}.page-hero:after{right:20px;top:18px;font-size:8px}.page-title{font-size:clamp(43px,10.5vw,72px);line-height:1.08}.page-body{padding:32px 20px 64px}.page-body h3{font-size:23px}.page-body p,.page-body li{font-size:14px}.contact-grid{grid-template-columns:1fr}}
+@media(max-width:380px){.page-title{font-size:40px}.nav-logo img{height:25px}}
+
+</style>
+<style id="odp-legal-integrations-style">.odp-legal-integrations{margin:44px 0 26px;padding:clamp(20px,3vw,42px);background:#0d0d0d;color:#f7f7f7;border:1px solid #303030;border-radius:22px;overflow:hidden}.odp-legal-integrations *{box-sizing:border-box}.odp-legal-eyebrow{color:#c9ff23;letter-spacing:.18em;font-weight:900;font-size:11px;margin-bottom:16px}.odp-legal-feature-title{font-size:clamp(28px,4.4vw,56px);line-height:1.03;letter-spacing:-.035em;margin:0 0 16px!important;color:white!important;font-weight:950}.odp-legal-feature-title span{color:#c9ff23}.odp-legal-lead{font-size:clamp(15px,1.5vw,18px);max-width:850px;color:#d4d4d4!important;line-height:1.65}.odp-legal-integrations-section{border-top:1px solid #343434;padding-top:24px;margin-top:28px}.odp-legal-integrations-section h2{color:#c9ff23!important;font-size:clamp(19px,2vw,27px)!important;line-height:1.25!important;margin:0 0 13px!important}.odp-legal-integrations-section p,.odp-legal-links{color:#d7d7d7!important;line-height:1.7!important;font-size:15px!important;margin:0 0 13px!important}.odp-legal-integrations a{color:#c9ff23!important;text-decoration:underline;text-underline-offset:3px}.odp-legal-table-wrap{max-width:100%;overflow-x:auto}.odp-legal-table{border-collapse:collapse;width:100%;min-width:580px;font-size:14px;line-height:1.55}.odp-legal-table th,.odp-legal-table td{padding:13px 12px;text-align:left;vertical-align:top;border-bottom:1px solid #343434;color:#e6e6e6}.odp-legal-table th{color:#c9ff23;background:#1c1c1c;font-size:12px;letter-spacing:.04em}.odp-legal-table td:first-child{width:24%}.odp-legal-links{border-top:1px solid #343434;margin-top:25px!important;padding-top:22px}@media(max-width:700px){.odp-legal-integrations{padding:20px 16px;border-radius:15px;margin:28px 0}.odp-legal-integrations-section{padding-top:20px;margin-top:22px}.odp-legal-table{min-width:0;display:block}.odp-legal-table thead{display:none}.odp-legal-table tbody,.odp-legal-table tr,.odp-legal-table td{display:block;width:100%!important}.odp-legal-table tr{padding:10px 0;border-bottom:1px solid #343434}.odp-legal-table td{border:0;padding:5px 4px}.odp-legal-table td:first-child{font-size:16px;color:#c9ff23}.odp-legal-integrations-section p{font-size:14px!important}}</style></head>
 <body>
 <nav>
 <div class="nav-inner">
@@ -140,17 +147,16 @@ img,video,svg{max-width:100%}
 <a class="back-link" href="/">
 <svg fill="none" height="16" viewbox="0 0 16 16" width="16"><path d="M10 4L6 8l4 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg> Voltar</a>
 </div>
-</nav><div aria-label="Legal navigation" class="legal-quick-nav"><div class="legal-quick-nav-inner"><a href="/privacidade/">Privacidade</a><a href="/termos/">Termos</a><a href="/cookies/">Cookies</a><a href="/rgpd/">RGPD</a><a href="/eliminacao-dados/">Eliminação de Dados</a><a href="/sobre-nos/">Sobre nós</a><a href="/contacto/">Contacto</a></div></div>
+</nav><div aria-label="Legal navigation" class="legal-quick-nav"><div class="legal-quick-nav-inner"><a href="/privacidade/">Privacidade</a><a href="/termos/">Termos</a><a href="/cookies/">Cookies</a><a href="/rgpd/">RGPD</a><a aria-current="page" href="/eliminacao-dados/">Eliminação de Dados</a><a href="/sobre-nos/">Sobre nós</a><a href="/contacto/">Contacto</a></div></div>
 <div class="page-hero">
 <div class="page-tag">Privacidade</div>
 <h1 class="page-title">Eliminação de <em>dados pessoais</em></h1>
 <p class="page-sub">Como pedir a eliminação da tua conta e dos dados associados, incluindo dados provenientes de plataformas de terceiros.</p>
 </div>
-<div class="page-body"><div class="divider"></div><p><strong>Última atualização:</strong> abril de 2026</p><h3>O teu direito ao apagamento</h3><p>Podes solicitar a eliminação dos dados pessoais armazenados pela One Damn Place, nos termos do artigo 17.º do RGPD e das políticas das plataformas integradas.</p><p><strong>A eliminação da conta é permanente e irreversível.</strong> Depois de concluída, não será possível recuperar conteúdos, histórico, relatórios ou configurações eliminadas.</p><h3>Como pedir a eliminação</h3><p><strong>1. Na plataforma:</strong> acede à tua conta One Damn Place → Definições → Conta → Eliminar conta e confirma o pedido.</p><p><strong>2. Por email:</strong> envia um pedido para <strong>info@onedamnplace.com</strong> com o assunto “Pedido de eliminação de dados” e indica o email associado à conta.</p><p><strong>3. Através de plataformas de terceiros:</strong> quando uma plataforma integrada nos envia um pedido/callback de eliminação válido, processamos os dados associados de acordo com os requisitos dessa plataforma e com as obrigações legais aplicáveis.</p><h3>O que é eliminado</h3><p>Eliminamos os dados da conta, tokens de acesso às plataformas ligadas, conteúdos armazenados, métricas e relatórios, dados de calendário sincronizados e outros dados associados à conta, salvo quando exista uma obrigação legal de conservação.</p><p>Os tokens de acesso são eliminados com prioridade. Registos técnicos e cópias de segurança podem permanecer temporariamente até ao fim do ciclo normal de retenção. Dados de faturação e documentos fiscalmente relevantes são conservados durante o período exigido pela legislação portuguesa.</p><h3>Dados existentes nas plataformas de terceiros</h3><p>A eliminação da conta One Damn Place não elimina automaticamente conteúdos que existam diretamente na Meta, TikTok, Pinterest, LinkedIn, Google ou noutras plataformas. Esses conteúdos devem ser geridos junto do respetivo fornecedor.</p><h3>Meta — Data Deletion Callback</h3><p>Quando aplicável, a One Damn Place suporta o mecanismo de Data Deletion Callback exigido pela Meta. Ao remover a aplicação nas definições da Meta, poderá ser enviado um pedido de eliminação para o nosso sistema. Processamos os dados associados à One Damn Place de acordo com os requisitos da Meta e com as obrigações legais de retenção.</p><h3>Confirmação e estado do pedido</h3><p>Enviaremos confirmação do pedido e, quando aplicável, informação sobre a sua conclusão. Para verificar um pedido existente, contacta <strong>info@onedamnplace.com</strong> e indica o email da conta e qualquer identificador de pedido que tenhas recebido.</p><h3>Outros direitos RGPD</h3><p>Além do apagamento, podes exercer direitos de acesso, retificação, portabilidade, limitação e oposição através de <strong>info@onedamnplace.com</strong>.</p></div>
+<div class="page-body"><p>Última atualização: 13 de novembro de 2026.</p><h3>Como pedir a eliminação</h3><p>Podes pedir a eliminação da conta e dos dados pessoais associados através de <a href="mailto:info@onedamnplace.com">info@onedamnplace.com</a>, indicando o email da conta. Se a aplicação disponibilizar uma opção de eliminação nas definições, podes utilizá-la. Poderemos pedir confirmação de identidade antes de executar o pedido.</p><h3>O que acontece aos dados</h3><p>Os dados da conta, conteúdos armazenados e credenciais de integrações são eliminados ou anonimizados conforme aplicável e sujeito a obrigações legais, necessidades de segurança e períodos de conservação legítimos. Documentos fiscais, registos exigidos por lei e cópias de segurança podem estar sujeitos a prazos específicos. A eliminação pode ser irreversível.</p><h3>Integrações externas</h3><p>A eliminação da conta na One Damn Place não elimina automaticamente publicações ou ficheiros já existentes em Meta, TikTok, LinkedIn, Google ou outros serviços. Para eliminar dados nesses serviços, utiliza também as respetivas ferramentas. Pedidos de eliminação recebidos por mecanismos oficiais das plataformas integradas serão tratados de acordo com os requisitos aplicáveis.</p><h3>Prazos e confirmação</h3><p>Os pedidos de exercício de direitos são respondidos nos prazos do RGPD, em regra até um mês, ressalvadas as exceções legais. Quando aplicável, explicaremos os dados que não possam ser apagados imediatamente e o motivo.</p><h3>Contacto</h3><p><a href="mailto:info@onedamnplace.com">info@onedamnplace.com</a>.</p><h3>O que acontece depois do pedido</h3><p>O pedido é analisado para identificar a conta, os dados abrangidos e eventuais impedimentos legais. Quando a eliminação seja aplicável, devem ser removidos ou anonimizados os dados dos sistemas ativos de acordo com os procedimentos técnicos existentes.</p><h3>Dados que podem ter de ser conservados</h3><p>Determinados documentos fiscais, registos necessários à prevenção de fraude, à segurança ou à defesa de direitos podem continuar a ser conservados durante o prazo legal aplicável. O motivo e a duração devem ser comunicados quando relevantes.</p><h3>Backups e cópias de segurança</h3><p>Dados presentes em backups podem não desaparecer imediatamente dos ficheiros de recuperação. A política efetiva de rotação e retenção deve ser confirmada com a equipa técnica e respeitar medidas que evitem a reposição indevida de dados eliminados.</p><h3>Contas ligadas a serviços externos</h3><p>Desligar Instagram, Facebook, TikTok, LinkedIn, Google ou outros serviços revoga ou limita acessos na plataforma, mas não elimina automaticamente conteúdos e dados mantidos pelo fornecedor externo. Poderás ter de exercer direitos diretamente junto desse fornecedor.</p><h3>Dados de clientes de uma agência</h3><p>Se os teus dados estiverem num workspace administrado por uma agência ou outra entidade, esta poderá ser responsável por decidir sobre a eliminação. A One Damn Place deverá colaborar com o responsável pelo tratamento nos termos aplicáveis.</p><h3>Antes de eliminares a conta</h3><p>Confirma se precisas de guardar propostas, conteúdos, relatórios, faturas ou outros ficheiros. A eliminação pode ser irreversível nos sistemas ativos e pode afetar colaboradores e clientes com acesso ao mesmo workspace.</p><div class="odp-legal-integrations" id="integracoes-externas"><div class="odp-legal-eyebrow">TRANSPARÊNCIA / INTEGRAÇÕES</div><h2 class="odp-legal-feature-title">AS TUAS CONTAS.<br><span>OS TEUS DADOS.</span> AS REGRAS CLARAS.</h2><p class="odp-legal-lead">A One Damn Place pode ligar-se a serviços externos mediante autorização do utilizador. O acesso concreto depende das funcionalidades ativadas, das permissões concedidas e das regras de cada fornecedor.</p><section class="odp-legal-integrations-section"><h2>Como desligar contas externas</h2><p>Para interromper novas operações, remove a ligação nas definições da One Damn Place, se disponível, e revoga o acesso na área de aplicações autorizadas da conta Meta, TikTok, Google ou LinkedIn. A revogação pode tornar indisponíveis agendamentos, sincronizações e outras funções dependentes dessa ligação.</p><p>Para dados detidos pela One Damn Place, apresenta um pedido através dos contactos indicados nesta página. Indica a conta ou workspace, o serviço externo envolvido e o tipo de dados a eliminar, sem partilhar palavras-passe ou tokens de acesso.</p></section><section class="odp-legal-integrations-section"><h2>O que é — e não é — eliminado</h2><p>A remoção de tokens e dados sincronizados deve seguir os procedimentos técnicos aplicáveis e os prazos de conservação legalmente exigidos. A eliminação de cópias de segurança pode ocorrer segundo ciclos próprios, que precisam de confirmação operacional antes de serem publicados como prazo garantido.</p><p>Conteúdos já publicados em Instagram, Facebook, TikTok, LinkedIn ou outros serviços não são automaticamente removidos dessas plataformas pelo encerramento da conta One Damn Place. O utilizador deverá apagá-los diretamente no serviço externo, se o desejar.</p></section><section class="odp-legal-integrations-section"><h2>Pedidos específicos de plataformas</h2><p>Quando um fornecedor, como a Meta, disponibiliza mecanismos específicos de eliminação de dados associados a uma aplicação, a One Damn Place deve assegurar que o endpoint, o procedimento e as instruções publicados correspondem ao fluxo realmente implementado. Esta página não afirma que exista um endpoint automático sem verificação técnica.</p></section><p class="odp-legal-links"><strong>Políticas oficiais dos fornecedores:</strong> <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener noreferrer">Meta</a> · <a href="https://www.tiktok.com/legal/page/eea/privacy-policy/pt" target="_blank" rel="noopener noreferrer">TikTok</a> · <a href="https://policies.google.com/privacy?hl=pt-PT" target="_blank" rel="noopener noreferrer">Google</a> · <a href="https://www.linkedin.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">LinkedIn</a> · <a href="https://policy.pinterest.com/pt/privacy-policy" target="_blank" rel="noopener noreferrer">Pinterest</a> · <a href="https://www.spotify.com/pt/legal/privacy-policy/" target="_blank" rel="noopener noreferrer">Spotify</a>. As políticas destes serviços são independentes da One Damn Place e podem mudar.</p></div></div>
 <footer-mini>© 2026 One Damn Place. All rights reserved.  ·  <a href="/privacidade/" style="color:var(--muted);text-decoration:none;">Política de Privacidade</a>  ·  <a href="/termos/" style="color:var(--muted);text-decoration:none;">Termos de Utilização</a></footer-mini>
-
 <!-- One Damn Place soundtrack -->
-<audio id="odpSoundtrack" src="/one-damn-place.mp3" loop preload="auto" playsinline></audio>
+<audio id="odpSoundtrack" loop="" playsinline="" preload="auto" src="/one-damn-place.mp3"></audio>
 <style>
 #odpMusicExperience{
   position:fixed;right:24px;top:112px;z-index:99999;width:min(350px,calc(100vw - 32px));
@@ -207,21 +213,19 @@ img,video,svg{max-width:100%}
   .odp-music-title{font-size:14px}.odp-music-text{font-size:11px}
 }
 </style>
-
-<div id="odpMusicExperience" role="region" aria-label="Experiência sonora One Damn Place">
-  <div class="odp-music-top">
-    <div class="odp-music-icon">♪</div>
-    <div class="odp-music-copy">
-      <div class="odp-music-eyebrow">TURN THE SOUND ON</div>
-      <p class="odp-music-title">Ouve a One Damn Place.</p>
-      <p class="odp-music-text">A música conta-te o caos que deixas para trás — e tudo o que podes gerir num só lugar.</p>
-    </div>
-  </div>
-  <button id="odpMusicToggle" type="button" aria-label="Desligar música">
-    <span class="odp-eq"><i></i><i></i><i></i></span><span class="odp-music-label">MUSIC OFF</span>
-  </button>
+<div aria-label="Experiência sonora One Damn Place" id="odpMusicExperience" role="region">
+<div class="odp-music-top">
+<div class="odp-music-icon">♪</div>
+<div class="odp-music-copy">
+<div class="odp-music-eyebrow">TURN THE SOUND ON</div>
+<p class="odp-music-title">Ouve a One Damn Place.</p>
+<p class="odp-music-text">A música conta-te o caos que deixas para trás — e tudo o que podes gerir num só lugar.</p>
 </div>
-
+</div>
+<button aria-label="Desligar música" id="odpMusicToggle" type="button">
+<span class="odp-eq"><i></i><i></i><i></i></span><span class="odp-music-label">MUSIC OFF</span>
+</button>
+</div>
 <script>
 (function(){
   const audio=document.getElementById('odpSoundtrack');
@@ -311,6 +315,5 @@ img,video,svg{max-width:100%}
   document.addEventListener('scroll',unlock,true);
 })();
 </script>
-<script src="https://app.onedamnplace.com/api/track/embed.js"></script>
 </body>
 </html>
